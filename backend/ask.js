@@ -53,7 +53,7 @@ const memory = new BufferMemory({
   memoryKey: 'chat_history',
 });
 
-export const davinci = async (prompt, key, gptVersion, filePath = './data1.json') => {
+export const davinci = async (prompt, key, gptVersion, filePath = './data.txt') => {
   
   const docs = await loadCustomData(filePath);
 

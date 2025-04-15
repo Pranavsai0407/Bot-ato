@@ -57,7 +57,7 @@
           "motionSensor": true,
           "workingTemperature": "-20°C to 60°C",
           "lifespan": "50,000+ hours",
-          "heightRecommendation": "Pole mounted at 6–10 meters"
+          "heightRecommendation": "Pole mounted at 6-10 meters"
         },
         "dimensions": {
           "length": "42 inches",
@@ -66,7 +66,7 @@
           "weight": "15 kg"
         },
         "warranty": "5 years on the solar panel, 3 years on battery and electronics",
-        "image": "https://example.com/images/solarmax-street-light.jpg",
+        "image": "https://th.bing.com/th/id/OIP.phez5I2hnbi_JGFC9vox5gHaFK?rs=1&pid=ImgDetMain",
         "faq": [
           {
             "question": "Can it work in cloudy weather?",
@@ -107,11 +107,11 @@
           "weight": "1.2 kg"
         },
         "warranty": "2 years on all parts",
-        "image": "https://example.com/images/drivelite-pro.jpg",
+        "image": "https://m.media-amazon.com/images/I/51kESWfJL8L.jpg",
         "faq": [
           {
             "question": "Is it car-safe?",
-            "answer": "Absolutely! It’s designed to handle the weight of sedans, trucks, and light industrial vehicles."
+            "answer": "Absolutely! It's designed to handle the weight of sedans, trucks, and light industrial vehicles."
           },
           {
             "question": "Can I use it around pools?",
@@ -148,7 +148,7 @@
           "weight": "0.8 kg"
         },
         "warranty": "3 years on battery and motion sensor",
-        "image": "https://example.com/images/ecowall-shine.jpg",
+        "image": "https://m.media-amazon.com/images/I/51y8Z-ipJmL._SL500_.jpg",
         "faq": [
           {
             "question": "Can it be installed without drilling?",
