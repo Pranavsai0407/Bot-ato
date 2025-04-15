@@ -76,25 +76,30 @@ const ChatView = () => {
    */
   const sendMessage = async (e) => {
     e.preventDefault();
-
+  
     const key = window.localStorage.getItem('api-key');
     if (!key) {
       setModalOpen(true);
       return;
     }
-
+  
+    const userMessageLower = formValue.trim().toLowerCase();
+    if (["no", "nope", "nah", "not really"].includes(userMessageLower)) {
+      updateMessage(formValue, false, selected);
+      updateMessage("Can you please share your contact info so we can follow up with you if needed?", true, selected);
+      setFormValue('');
+      return;
+    }
+  
     const cleanPrompt = replaceProfanities(formValue);
-
     const newMsg = cleanPrompt;
     const aiModel = selected;
     const gptVersion = gpt;
-
+  
     setThinking(true);
     setFormValue('');
     updateMessage(newMsg, false, aiModel);
-    console.log(gptVersion);
-
-    console.log(selected);
+  
     try {
       if (aiModel === options[0]) {
         const LLMresponse = await fetch("http://localhost:5001/ask", {
@@ -106,25 +111,25 @@ const ChatView = () => {
             gptVersion: gptVersion
           })
         });
-        const data = await LLMresponse.json(); // or .text() if backend returns plain text
-        LLMresponse && updateMessage(data.response, true, aiModel);
+        const data = await LLMresponse.json();
+        data?.response && updateMessage(`${data.response}\n\nIs there anything else you want me to do?`, true, aiModel);
       } 
-      else if(aiModel==options[1]){
-        const LLMresponse = await davinci(cleanPrompt,key,gptVersion);
-        LLMresponse && updateMessage(LLMresponse, true, aiModel);
+      else if (aiModel === options[1]) {
+        const LLMresponse = await davinci(cleanPrompt, key, gptVersion);
+        LLMresponse && updateMessage(`${LLMresponse}\n\nIs there anything else you want me to do?`, true, aiModel);
       }
       else {
         const response = await dalle(cleanPrompt, key);
         const data = response.data.data[0].url;
-        data && updateMessage(data, true, aiModel);
+        data && updateMessage(`${data}\n\nIs there anything else you want me to do?`, true, aiModel);
       }
     } catch (err) {
       window.alert(`Error: ${err} please try again later`);
     }
-
+  
     setThinking(false);
   };
-
+  
   const handleKeyDown = (e) => {
     if (e.key === 'Enter') {
       // 👇 Get input value
