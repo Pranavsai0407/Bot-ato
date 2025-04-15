@@ -87,7 +87,7 @@ const ChatView = () => {
     }
   
     const userMessageLower = formValue.trim().toLowerCase();
-    if (["no", "nope", "nah", "not really"].includes(userMessageLower)) {
+    if (["no", "nope", "nah", "not really","No I'm fine"].includes(userMessageLower)) {
       updateMessage(formValue, false, selected);
       updateMessage("Can you please share your contact info so we can follow up with you if needed?", true, selected);
       setFormValue('');
