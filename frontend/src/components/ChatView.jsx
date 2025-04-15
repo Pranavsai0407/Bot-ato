@@ -9,6 +9,9 @@ import { dalle } from '../utils/dalle';
 import Modal from './Modal';
 import Setting from './Setting';
 
+const API_BASE_URL = import.meta.env.VITE_BACKEND_URL;
+
+
 const options = ['ABC-service-bot','ChatGPT', 'DALL·E'];
 const gptModel = ['gpt-3.5-turbo', 'gpt-4'];
 const template = [
@@ -102,7 +105,7 @@ const ChatView = () => {
   
     try {
       if (aiModel === options[0]) {
-        const LLMresponse = await fetch("http://localhost:5001/ask", {
+        const LLMresponse = await fetch(`${API_BASE_URL}/ask`, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
