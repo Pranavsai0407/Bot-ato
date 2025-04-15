@@ -116,12 +116,12 @@ const ChatView = () => {
       } 
       else if (aiModel === options[1]) {
         const LLMresponse = await davinci(cleanPrompt, key, gptVersion);
-        LLMresponse && updateMessage(`${LLMresponse}\n\nIs there anything else you want me to do?`, true, aiModel);
+        LLMresponse && updateMessage(LLMresponse, true, aiModel);
       }
       else {
         const response = await dalle(cleanPrompt, key);
         const data = response.data.data[0].url;
-        data && updateMessage(`${data}\n\nIs there anything else you want me to do?`, true, aiModel);
+        data && updateMessage(data, true, aiModel);
       }
     } catch (err) {
       window.alert(`Error: ${err} please try again later`);
